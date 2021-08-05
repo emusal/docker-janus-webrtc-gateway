@@ -1,3 +1,5 @@
+yum install -y epel-release
+
 yum install -y \
   jansson-devel \
   libconfig-devel \

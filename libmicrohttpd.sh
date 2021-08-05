@@ -1,4 +1,3 @@
-yum install -y epel-release
 yum install -y git
 yum install -y gnutls gnutls-devel
 
