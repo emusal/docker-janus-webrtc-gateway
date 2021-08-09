@@ -1,6 +1,19 @@
+yum install -y update
 yum install -y epel-release
-
 yum install -y \
+  unzip wget curl which git \
+  gcc \
+  gcc-c++ \
+  libtool \
+  autoconf \
+  automake \
+  make \
+  cmake \
+  python3 \
+  python3-pip \
+  gettext \
+  gettext-autopoint \
+  texinfo \
   jansson-devel \
   libconfig-devel \
   openssl-devel \
@@ -11,8 +24,6 @@ yum install -y \
   glib2-devel \
   zlib-devel \
   pkgconfig \
-  gengetopt
-
-yum install -y \
+  gengetopt \
   doxygen \
   graphviz
