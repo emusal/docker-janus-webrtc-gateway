@@ -16,6 +16,7 @@ RUN ./nginx.sh
 RUN ./janus.sh
 COPY conf/*.jcfg /opt/janus/etc/janus/.
 ADD certs /opt/janus/share/certs
+COPY html/* /opt/janus/share/janus/demos/.
 EXPOSE 80 7088 8088 8188
 USER 1000
 CMD ./startup.sh
