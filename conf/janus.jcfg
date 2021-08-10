@@ -1,0 +1,137 @@
+general: {
+        configs_folder = "/opt/janus/etc/janus"                 # Configuration files folder
+        plugins_folder = "/opt/janus/lib/janus/plugins"                 # Plugins folder
+        transports_folder = "/opt/janus/lib/janus/transports"   # Transports folder
+        events_folder = "/opt/janus/lib/janus/events"                   # Event handlers folder
+        loggers_folder = "/opt/janus/lib/janus/loggers"                 # External loggers folder
+
+                # The next settings configure logging
+        #log_to_stdout = false                                  # Whether the Janus output should be written
+                                                                                        # to stdout or not (default=true)
+        #log_to_file = "/path/to/janus.log"             # Whether to use a log file or not
+        debug_level = 4                                                 # Debug/logging level, valid values are 0-7
+        #debug_timestamps = true                                # Whether to show a timestamp for each log line
+        #debug_colors = false                                   # Whether colors should be disabled in the log
+        #debug_locks = true                                             # Whether to enable debugging of locks (very verbose!)
+        #log_prefix = "[janus] "                                # In case you want log lines to be prefixed by some
+                                                                                        # custom text, you can use the 'log_prefix' property.
+                                                                                        # It supports terminal colors, meaning something like
+                                                                                        # "[\x1b[32mjanus\x1b[0m] " would show a green "janus"
+                                                                                        # string in square brackets (assuming debug_colors=true).
+
+                # This is what you configure if you want to launch Janus as a daemon
+        #daemonize = true                                               # Whether Janus should run as a daemon
+                                                                                        # or not (default=run in foreground)
+        #pid_file = "/path/to/janus.pid"                # PID file to create when Janus has been
+                                                                                        # started, and to destroy at shutdown
+
+                # There are different ways you can authenticate the Janus and Admin APIs
+        #api_secret = "janusrocks"              # String that all Janus requests must contain
+        #token_auth = true                              # Enable a token based authentication
+        #token_auth_secret = "janus"    # Use HMAC-SHA1 signed tokens (with token_auth). Note that
+        admin_secret = "janusoverlord"  # String that all Janus requests must contain
+
+        #interface = "1.2.3.4"                  # Interface to use (will be used in SDP)
+        #server_name = "MyJanusInstance"# Public name of this Janus instance
+                                                                        # as it will appear in an info request
+        #session_timeout = 60                   # How long (in seconds) we should wait before
+        #candidates_timeout = 45                # How long (in seconds) we should keep hold of
+        #reclaim_session_timeout = 0    # How long (in seconds) we should wait for a
+        #recordings_tmp_ext = "tmp"             # The extension for recordings, in Janus, is
+        #event_loops = 8                                # By default, Janus handles each have their own
+        #opaqueid_in_api = true                 # Opaque IDs set by applications are typically
+        #hide_dependencies = true               # By default, a call to the "info" endpoint of
+
+        #no_webrtc_encryption = true
+
+        protected_folders = [
+                "/bin",
+                "/boot",
+                "/dev",
+                "/etc",
+                "/initrd",
+                "/lib",
+                "/lib32",
+                "/lib64",
+                "/proc",
+                "/sbin",
+                "/sys",
+                "/usr",
+                "/var",
+                "/opt/janus/bin",
+                "/opt/janus/etc",
+                "/opt/janus/include",
+                "/opt/janus/lib",
+                "/opt/janus/lib32",
+                "/opt/janus/lib64",
+                "/opt/janus/sbin"
+        ]
+}
+
+certificates: {
+	cert_pem = "/opt/janus/share/certs/mycert.pem"
+	cert_key = "/opt/janus/share/certs/mycert.key"
+        #cert_pwd = "secretpassphrase"
+        #dtls_accept_selfsigned = false
+        #dtls_ciphers = "your-desired-openssl-ciphers"
+        #rsa_private_key = false
+}
+
+media: {
+        #ipv6 = true
+        #min_nack_queue = 500
+        #rtp_port_range = "20000-40000"
+        #dtls_mtu = 1200
+        #no_media_timer = 1
+        #slowlink_threshold = 4
+        #twcc_period = 100
+        #dtls_timeout = 500
+
+        #dscp = 46
+}
+
+nat: {
+        #stun_server = "stun.l.google.com"
+        #stun_port = 19302
+        nice_debug = false
+        #full_trickle = true
+        #ice_lite = true
+        #ice_tcp = true
+
+        #nat_1_1_mapping = "192.168.9.102"
+        #keep_private_host = true
+
+        #turn_server = "myturnserver.com"
+        #turn_port = 3478
+        #turn_type = "udp"
+        #turn_user = "myuser"
+        #turn_pwd = "mypassword"
+
+        #turn_rest_api = "http://yourbackend.com/path/to/api"
+        #turn_rest_api_key = "anyapikeyyoumayhaveset"
+        #turn_rest_api_method = "GET"
+
+        #ice_enforce_list = "eth0"
+
+        ice_ignore_list = "vmnet"
+
+        ignore_unreachable_ice_server = false
+}
+
+plugins: {
+        #disable = "libjanus_voicemail.so,libjanus_recordplay.so"
+}
+
+transports: {
+        #disable = "libjanus_rabbitmq.so"
+}
+
+loggers: {
+        #disable = "libjanus_jsonlog.so"
+}
+
+events: {
+        #broadcast = true
+        #disable = "libjanus_sampleevh.so"
+        #stats_period = 5
+}
