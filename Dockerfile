@@ -48,16 +48,16 @@ RUN ./libmicrohttpd.sh
 
 RUN mkdir ./conf
 
-COPY conf/nginx* ./conf/.
+COPY conf/nginx* ./conf/
 COPY nginx.sh ./
 RUN ./nginx.sh
 
 COPY janus.sh ./
 RUN ./janus.sh
 
-COPY conf/*.jcfg /opt/janus/etc/janus/.
+COPY conf/*.jcfg /opt/janus/etc/janus/
 ADD certs /opt/janus/share/certs
-COPY html/* /opt/janus/share/janus/demos/.
+COPY html/* /opt/janus/share/janus/demos/
 
 EXPOSE 80 443 8088 8089 8188
 USER 1000
